@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		005CF03027BFC82A0081E2D2 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005CF02F27BFC82A0081E2D2 /* Extensions.swift */; };
 		0098064027BD61E200BCA640 /* MeditationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098063F27BD61E200BCA640 /* MeditationView.swift */; };
 		0098064227BD69BD00BCA640 /* MusicPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098064127BD69BD00BCA640 /* MusicPlayerView.swift */; };
 		0098064427BE91AB00BCA640 /* PlaybackControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098064327BE91AB00BCA640 /* PlaybackControlView.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		005CF02F27BFC82A0081E2D2 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		0098063F27BD61E200BCA640 /* MeditationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeditationView.swift; sourceTree = "<group>"; };
 		0098064127BD69BD00BCA640 /* MusicPlayerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicPlayerView.swift; sourceTree = "<group>"; };
 		0098064327BE91AB00BCA640 /* PlaybackControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControlView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				0098064527BEA54600BCA640 /* MedixenViewModel.swift */,
 				0098064727BEA55B00BCA640 /* MedixenModel.swift */,
 				0098064127BD69BD00BCA640 /* MusicPlayerView.swift */,
+				005CF02F27BFC82A0081E2D2 /* Extensions.swift */,
 				0098064327BE91AB00BCA640 /* PlaybackControlView.swift */,
 				00BCC78D27BBFBA30000E525 /* Assets.xcassets */,
 				0098064C27BEB57C00BCA640 /* meditationFile1.mp3 */,
@@ -162,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00BCC78C27BBFBA10000E525 /* ContentView.swift in Sources */,
+				005CF03027BFC82A0081E2D2 /* Extensions.swift in Sources */,
 				0098064827BEA55B00BCA640 /* MedixenModel.swift in Sources */,
 				0098064A27BEACA300BCA640 /* AudioManager.swift in Sources */,
 				0098064227BD69BD00BCA640 /* MusicPlayerView.swift in Sources */,

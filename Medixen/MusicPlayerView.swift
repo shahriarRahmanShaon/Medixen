@@ -14,7 +14,6 @@ struct MusicPlayerView: View {
     @State var isEditing = false
     var medixenVM: MedixenViewModel
     let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
-    let formatter = DateComponentsFormatter()
     
     var body: some View {
         ZStack{
@@ -56,25 +55,25 @@ struct MusicPlayerView: View {
                         }
                             .accentColor(Color.white)
                         HStack{
-                            Text("")
+                            Text(DateComponentsFormatter().timeInMinuteAndSecondsOnly.string(from: player.currentTime) ?? "0.00")
                             Spacer()
-                            Text("1:00")
+                            Text(DateComponentsFormatter().timeInMinuteAndSecondsOnly.string(from: player.duration - player.currentTime) ?? "0:00")
                         }.foregroundColor(Color.white)
                         HStack{
                             PlaybackControlView(imageName: "repeat"){
-                                
+                               
                             }
                             Spacer()
                             PlaybackControlView(imageName: "gobackward.10"){
-                                
+                                player.currentTime -= 10
                             }
                             Spacer()
-                            PlaybackControlView(imageName: "play.circle.fill", fontSIze: 45){
-                                
+                            PlaybackControlView(imageName: player.isPlaying ? "pause.circle.fill" : "play.circle.fill", fontSIze: 45){
+                                audioManagerVM.playPause()
                             }
                             Spacer()
                             PlaybackControlView(imageName: "goforward.10"){
-                                
+                                player.currentTime += 10
                             }
                             Spacer()
                             PlaybackControlView(imageName: "stop.fill"){

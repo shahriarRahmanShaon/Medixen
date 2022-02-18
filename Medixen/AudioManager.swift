@@ -23,4 +23,14 @@ class AudioManager: ObservableObject{
             print("couldn't find the track")
         }
     }
+    
+    func playPause(){
+        if let player = player {
+            if player.isPlaying{
+                player.pause()
+            }else{
+                player.play()
+            }
+        }
+    }
 }
