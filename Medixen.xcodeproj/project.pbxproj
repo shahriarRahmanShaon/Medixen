@@ -12,6 +12,8 @@
 		0098064427BE91AB00BCA640 /* PlaybackControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098064327BE91AB00BCA640 /* PlaybackControlView.swift */; };
 		0098064627BEA54600BCA640 /* MedixenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098064527BEA54600BCA640 /* MedixenViewModel.swift */; };
 		0098064827BEA55B00BCA640 /* MedixenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098064727BEA55B00BCA640 /* MedixenModel.swift */; };
+		0098064A27BEACA300BCA640 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0098064927BEACA300BCA640 /* AudioManager.swift */; };
+		0098064D27BEB57C00BCA640 /* meditationFile1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0098064C27BEB57C00BCA640 /* meditationFile1.mp3 */; };
 		00BCC78A27BBFBA10000E525 /* MedixenApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCC78927BBFBA10000E525 /* MedixenApp.swift */; };
 		00BCC78C27BBFBA10000E525 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCC78B27BBFBA10000E525 /* ContentView.swift */; };
 		00BCC78E27BBFBA30000E525 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00BCC78D27BBFBA30000E525 /* Assets.xcassets */; };
@@ -24,6 +26,9 @@
 		0098064327BE91AB00BCA640 /* PlaybackControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControlView.swift; sourceTree = "<group>"; };
 		0098064527BEA54600BCA640 /* MedixenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedixenViewModel.swift; sourceTree = "<group>"; };
 		0098064727BEA55B00BCA640 /* MedixenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedixenModel.swift; sourceTree = "<group>"; };
+		0098064927BEACA300BCA640 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
+		0098064B27BEB30900BCA640 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		0098064C27BEB57C00BCA640 /* meditationFile1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = meditationFile1.mp3; sourceTree = "<group>"; };
 		00BCC78627BBFBA10000E525 /* Medixen.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Medixen.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		00BCC78927BBFBA10000E525 /* MedixenApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedixenApp.swift; sourceTree = "<group>"; };
 		00BCC78B27BBFBA10000E525 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -61,14 +66,17 @@
 		00BCC78827BBFBA10000E525 /* Medixen */ = {
 			isa = PBXGroup;
 			children = (
+				0098064B27BEB30900BCA640 /* Info.plist */,
 				00BCC78927BBFBA10000E525 /* MedixenApp.swift */,
 				00BCC78B27BBFBA10000E525 /* ContentView.swift */,
+				0098064927BEACA300BCA640 /* AudioManager.swift */,
 				0098063F27BD61E200BCA640 /* MeditationView.swift */,
 				0098064527BEA54600BCA640 /* MedixenViewModel.swift */,
 				0098064727BEA55B00BCA640 /* MedixenModel.swift */,
 				0098064127BD69BD00BCA640 /* MusicPlayerView.swift */,
 				0098064327BE91AB00BCA640 /* PlaybackControlView.swift */,
 				00BCC78D27BBFBA30000E525 /* Assets.xcassets */,
+				0098064C27BEB57C00BCA640 /* meditationFile1.mp3 */,
 				00BCC78F27BBFBA30000E525 /* Preview Content */,
 			);
 			path = Medixen;
@@ -140,6 +148,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0098064D27BEB57C00BCA640 /* meditationFile1.mp3 in Resources */,
 				00BCC79127BBFBA30000E525 /* Preview Assets.xcassets in Resources */,
 				00BCC78E27BBFBA30000E525 /* Assets.xcassets in Resources */,
 			);
@@ -154,6 +163,7 @@
 			files = (
 				00BCC78C27BBFBA10000E525 /* ContentView.swift in Sources */,
 				0098064827BEA55B00BCA640 /* MedixenModel.swift in Sources */,
+				0098064A27BEACA300BCA640 /* AudioManager.swift in Sources */,
 				0098064227BD69BD00BCA640 /* MusicPlayerView.swift in Sources */,
 				0098064027BD61E200BCA640 /* MeditationView.swift in Sources */,
 				00BCC78A27BBFBA10000E525 /* MedixenApp.swift in Sources */,
@@ -292,6 +302,7 @@
 				DEVELOPMENT_TEAM = 86U3LK3Z76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Medixen/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -321,6 +332,7 @@
 				DEVELOPMENT_TEAM = 86U3LK3Z76;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Medixen/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

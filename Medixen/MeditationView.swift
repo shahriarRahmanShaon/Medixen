@@ -10,6 +10,7 @@ import SwiftUI
 struct MeditationView: View {
     @State private var isPresented = false
     @StateObject var medixenVM: MedixenViewModel
+    @StateObject var audiManagerVM: AudioManager
     
     var body: some View {
         VStack(spacing: 0){
@@ -49,7 +50,7 @@ struct MeditationView: View {
         }
         .ignoresSafeArea()
         .fullScreenCover(isPresented: $isPresented){
-            MusicPlayerView(medixenVM: medixenVM)
+            MusicPlayerView(audioManagerVM: audiManagerVM, medixenVM: medixenVM)
         }
 
     }
@@ -57,6 +58,6 @@ struct MeditationView: View {
 
 struct MeditationView_Previews: PreviewProvider {
     static var previews: some View {
-        MeditationView(medixenVM: MedixenViewModel(MedixenModel.MedixenSingleton))
+        MeditationView(medixenVM: MedixenViewModel(MedixenModel.MedixenSingleton), audiManagerVM: AudioManager())
     }
 }

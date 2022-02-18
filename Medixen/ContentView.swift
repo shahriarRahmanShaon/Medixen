@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        MeditationView(medixenVM: MedixenViewModel(MedixenModel.MedixenSingleton))
+        MeditationView(medixenVM: MedixenViewModel(MedixenModel.MedixenSingleton), audiManagerVM: AudioManager())
     }
 }
 

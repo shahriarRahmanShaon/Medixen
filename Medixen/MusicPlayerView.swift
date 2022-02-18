@@ -9,8 +9,12 @@ import SwiftUI
 
 struct MusicPlayerView: View {
     @State var sliderCounter = 0.0
+    @StateObject var audioManagerVM: AudioManager
     @Environment(\.presentationMode) var presentationMode
+    @State var isEditing = false
     var medixenVM: MedixenViewModel
+    let timer = Timer.publish(every: 0.5, on: .main, in: .common).autoconnect()
+    let formatter = DateComponentsFormatter()
     
     var body: some View {
         ZStack{
@@ -27,56 +31,73 @@ struct MusicPlayerView: View {
                 HStack{
                     Button {
                         presentationMode.wrappedValue.dismiss()
-                        
+                        audioManagerVM.player?.stop()
                     } label: {
                         Image(systemName: "xmark.circle.fill")
                             .font(.system(size: 40))
                             .foregroundColor(Color.white)
+                            .shadow(radius: 10)
                     }
                     Spacer()
-
+                    
                 }.padding()
                 Text(medixenVM.medixen.title)
                     .font(.title)
                     .foregroundColor(Color.white)
                 Spacer()
-                VStack{
-                    Slider(value: $sliderCounter, in: 0...200)
-                        .accentColor(Color.white)
-                    HStack{
-                        Text("0:00")
-                        Spacer()
-                        Text("1:00")
-                    }.foregroundColor(Color.white)
-                    HStack{
-                        PlaybackControlView(imageName: "repeat"){
-                            
+                if let player = audioManagerVM.player{
+                    VStack{
+                        Slider(value: $sliderCounter, in: 0...player.duration){ editing in
+                            print(editing)
+                            isEditing = editing
+                            if !editing{
+                                player.currentTime = sliderCounter
+                            }
                         }
-                        Spacer()
-                        PlaybackControlView(imageName: "gobackward.10"){
-                            
+                            .accentColor(Color.white)
+                        HStack{
+                            Text("")
+                            Spacer()
+                            Text("1:00")
+                        }.foregroundColor(Color.white)
+                        HStack{
+                            PlaybackControlView(imageName: "repeat"){
+                                
+                            }
+                            Spacer()
+                            PlaybackControlView(imageName: "gobackward.10"){
+                                
+                            }
+                            Spacer()
+                            PlaybackControlView(imageName: "play.circle.fill", fontSIze: 45){
+                                
+                            }
+                            Spacer()
+                            PlaybackControlView(imageName: "goforward.10"){
+                                
+                            }
+                            Spacer()
+                            PlaybackControlView(imageName: "stop.fill"){
+                                
+                            }
                         }
-                        Spacer()
-                        PlaybackControlView(imageName: "play.circle.fill", fontSIze: 45){
-                            
-                        }
-                        Spacer()
-                        PlaybackControlView(imageName: "goforward.10"){
-                            
-                        }
-                        Spacer()
-                        PlaybackControlView(imageName: "stop.fill"){
-                            
-                        }
-                    }
-                }.padding()
+                    }.padding()
+                }
             }
+        }
+        .onReceive(timer) { _ in
+            if let player = audioManagerVM.player, !isEditing{
+                sliderCounter = player.currentTime
+            }
+        }
+        .onAppear {
+            audioManagerVM.startAudioPlyer(musicTrack: medixenVM.medixen.track)
         }
     }
 }
 
 struct MusicPlayerView_Previews: PreviewProvider {
     static var previews: some View {
-        MusicPlayerView(medixenVM: MedixenViewModel(MedixenModel.MedixenSingleton))
+        MusicPlayerView(audioManagerVM: AudioManager(), medixenVM: MedixenViewModel(MedixenModel.MedixenSingleton))
     }
 }
